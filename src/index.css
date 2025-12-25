@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Luxury Minimalist Color Palette */
+    --background: 0 0% 100%;
+    --background-cream: 40 20% 98%;
+    --foreground: 0 0% 10%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    
+    /* Muted Gold Accent */
+    --primary: 40 50% 55%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 40 20% 97%;
+    --secondary-foreground: 0 0% 10%;
+    
+    --muted: 40 10% 96%;
+    --muted-foreground: 0 0% 45%;
+    
+    --accent: 40 50% 55%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 40 10% 90%;
+    --input: 40 10% 90%;
+    --ring: 40 50% 55%;
+    
+    --radius: 0.25rem;
+    
+    /* Custom Luxury Colors */
+    --gold: 40 50% 55%;
+    --gold-light: 40 40% 70%;
+    --charcoal: 0 0% 10%;
+    --charcoal-soft: 0 0% 25%;
+    --cream: 40 20% 98%;
+    --dark-footer: 0 0% 13%;
+    
+    /* Typography */
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Lato', sans-serif;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 13%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 13%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 40 50% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 17%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 17%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 40 50% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 17%;
+    --input: 0 0% 17%;
+    --ring: 40 50% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .luxury-heading {
+    @apply font-serif font-semibold tracking-tight text-charcoal;
+  }
+  
+  .luxury-body {
+    @apply font-sans font-light tracking-wide text-charcoal-soft leading-relaxed;
+  }
+  
+  .luxury-button {
+    @apply inline-flex items-center justify-center px-8 py-3 text-sm font-sans font-medium tracking-widest uppercase transition-all duration-300;
+  }
+  
+  .luxury-button-outline {
+    @apply luxury-button border border-charcoal text-charcoal hover:bg-charcoal hover:text-white;
+  }
+  
+  .luxury-button-gold {
+    @apply luxury-button bg-gold text-white hover:bg-gold-light;
+  }
+  
+  .luxury-line {
+    @apply w-16 h-px bg-gold;
+  }
+}
+
+@layer utilities {
+  /* Ken Burns Animation */
+  @keyframes ken-burns {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+  
+  .animate-ken-burns {
+    animation: ken-burns 20s ease-out forwards;
+  }
+  
+  /* Fade up animation */
+  @keyframes fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-up {
+    animation: fade-up 0.8s ease-out forwards;
+  }
+}
