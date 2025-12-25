@@ -54,8 +54,8 @@ export const CONTACT_CONFIG: ContactInfo = {
 // ===========================
 export const PROPERTY_DETAILS: PropertyDetails = {
   name: "Zaki Mansion",
-  tagline: "Luxury Living Redefined",
-  description: "Temukan hunian premium dengan desain modern dan kenyamanan maksimal di Kota Pontianak",
+  tagline: "Rumah Ideal Pilihan Anda",
+  description: "Temukan Hunian Ideal dengan desain modern dan kenyamanan maksimal di Kota Pontianak",
   location: "Pontianak, Kalimantan Barat",
   mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.75772082095!2d109.26539!3d-0.02123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d5987fd61ee53%3A0x88b38f3d04c3adac!2sPontianak%2C%20Pontianak%20City%2C%20West%20Kalimantan!5e0!3m2!1sen!2sid!4v1703000000000!5m2!1sen!2sid"
 };
@@ -93,8 +93,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
 
 export const SITE_CONTENT = {
   hero: {
-    headline: "Luxury Living",
-    subheadline: "Redefined",
+    headline: "Rumah Ideal",
+    subheadline: "Pilihan Anda",
     description: PROPERTY_DETAILS.description,
     location: PROPERTY_DETAILS.location,
     ctaPrimary: "Lihat Unit",
