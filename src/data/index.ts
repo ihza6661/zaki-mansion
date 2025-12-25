@@ -31,7 +31,7 @@ import heroImage from "@/assets/hero-mansion.jpg";
 export const CONTACT_CONFIG: ContactInfo = {
   phone: "+6281234567890",
   phoneFormatted: "+62 812-3456-7890",
-  whatsappLink: "https://wa.me/6281234567890",
+  whatsappLink: "https://wa.me/+6281352265111",
   email: "info@zakimansion.com",
   address: "Jl. Contoh Alamat No. 123, Pontianak, Kalimantan Barat"
 };
@@ -42,7 +42,7 @@ export const CONTACT_CONFIG: ContactInfo = {
 export const PROPERTY_DETAILS: PropertyDetails = {
   name: "Zaki Mansion",
   tagline: "Luxury Living Redefined",
-  description: "Temukan hunian premium dengan desain modern dan kenyamanan maksimal di jantung Kota Pontianak",
+  description: "Temukan hunian premium dengan desain modern dan kenyamanan maksimal di Kota Pontianak",
   location: "Pontianak, Kalimantan Barat",
   mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.75772082095!2d109.26539!3d-0.02123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d5987fd61ee53%3A0x88b38f3d04c3adac!2sPontianak%2C%20Pontianak%20City%2C%20West%20Kalimantan!5e0!3m2!1sen!2sid!4v1703000000000!5m2!1sen!2sid"
 };
@@ -90,7 +90,7 @@ export const SITE_CONTENT = {
     ctaSecondaryHref: "#kontak",
     scrollText: "Scroll",
     image: heroImage,
-    imageAlt: "Zaki Mansion - Hunian mewah dengan arsitektur modern di jantung Pontianak, menampilkan fasad elegan dan landscape premium"
+    imageAlt: "Zaki Mansion - Hunian mewah dengan arsitektur modern di Kota Pontianak, menampilkan fasad elegan dan landscape premium"
   },
 
   experience: {
