@@ -23,7 +23,7 @@ import poolImage from "@/assets/amenity-pool.jpg";
 import gardenImage from "@/assets/amenity-garden.jpg";
 import securityImage from "@/assets/amenity-security.jpg";
 import interiorImage from "@/assets/interior-living.jpg";
-import heroImage from "@/assets/hero-mansion.jpg";
+import heroImage from "@/assets/hero-mansion.webp";
 
 // ===========================
 // SITE CONFIGURATION
