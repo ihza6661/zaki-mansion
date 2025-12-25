@@ -1,17 +1,17 @@
 import { useState, useCallback } from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { SITE_CONTENT } from "@/data";
 
 const KPRCalculator = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const { kpr } = SITE_CONTENT;
 
-  const [hargaRumah, setHargaRumah] = useState(190000000);
-  const [dpPercent, setDpPercent] = useState(20);
-  const [bungaTahunan, setBungaTahunan] = useState(5);
-  const [tenor, setTenor] = useState(15);
-
-  const tenorOptions = [10, 15, 20];
+  const [hargaRumah, setHargaRumah] = useState(kpr.defaultValues.housePrice);
+  const [dpPercent, setDpPercent] = useState(kpr.defaultValues.dpPercent);
+  const [bungaTahunan, setBungaTahunan] = useState(kpr.defaultValues.interestRate);
+  const [tenor, setTenor] = useState(kpr.defaultValues.tenor);
 
   const calculateMonthlyPayment = useCallback(() => {
     const downPayment = (hargaRumah * dpPercent) / 100;
@@ -57,10 +57,10 @@ const KPRCalculator = () => {
           <div className="text-center mb-12">
             <span className="inline-block w-12 h-px bg-gold mb-8" />
             <h2 className="luxury-heading text-3xl md:text-4xl lg:text-5xl mb-6">
-              Simulasi KPR
+              {kpr.title}
             </h2>
             <p className="luxury-body text-base md:text-lg max-w-2xl mx-auto">
-              Hitung estimasi cicilan bulanan Anda dengan kalkulator KPR kami
+              {kpr.description}
             </p>
           </div>
 
@@ -78,7 +78,7 @@ const KPRCalculator = () => {
                 <div>
                   <div className="flex justify-between items-center mb-3">
                     <label className="font-sans text-sm font-medium tracking-wider uppercase text-charcoal">
-                      Harga Rumah
+                      {kpr.labels.housePrice}
                     </label>
                     <span className="font-sans text-sm text-gold font-medium">
                       {formatCurrency(hargaRumah)}
@@ -99,7 +99,7 @@ const KPRCalculator = () => {
                 <div>
                   <div className="flex justify-between items-center mb-3">
                     <label className="font-sans text-sm font-medium tracking-wider uppercase text-charcoal">
-                      Uang Muka (DP)
+                      {kpr.labels.downPayment}
                     </label>
                     <span className="font-sans text-sm text-gold font-medium">
                       {dpPercent}% ({formatCurrency(downPaymentAmount)})
@@ -120,7 +120,7 @@ const KPRCalculator = () => {
                 <div>
                   <div className="flex justify-between items-center mb-3">
                     <label className="font-sans text-sm font-medium tracking-wider uppercase text-charcoal">
-                      Bunga Tahunan
+                      {kpr.labels.interestRate}
                     </label>
                     <span className="font-sans text-sm text-gold font-medium">
                       {bungaTahunan}%
@@ -140,10 +140,10 @@ const KPRCalculator = () => {
                 {/* Tenor */}
                 <div>
                   <label className="font-sans text-sm font-medium tracking-wider uppercase text-charcoal block mb-3">
-                    Jangka Waktu
+                    {kpr.labels.tenure}
                   </label>
                   <div className="flex gap-3">
-                    {tenorOptions.map((option) => (
+                    {kpr.tenorOptions.map((option) => (
                       <button
                         key={option}
                         onClick={() => setTenor(option)}
@@ -164,30 +164,30 @@ const KPRCalculator = () => {
               <div className="flex flex-col justify-center items-center lg:border-l lg:border-border lg:pl-12">
                 <div className="text-center">
                   <span className="font-sans text-sm tracking-wider uppercase text-charcoal-soft block mb-4">
-                    Estimasi Cicilan per Bulan
+                    {kpr.labels.monthlyPayment}
                   </span>
                   <span className="font-serif text-4xl lg:text-5xl font-semibold text-gold">
                     {formatCurrency(monthlyPayment)}
                   </span>
                   <div className="mt-8 space-y-2 text-sm font-sans text-charcoal-soft">
                     <p>
-                      Pinjaman:{" "}
+                      {kpr.labels.loanAmount}:{" "}
                       <span className="text-charcoal font-medium">
                         {formatCurrency(hargaRumah - downPaymentAmount)}
                       </span>
                     </p>
                     <p>
-                      Total Pembayaran:{" "}
+                      {kpr.labels.totalPayment}:{" "}
                       <span className="text-charcoal font-medium">
                         {formatCurrency(monthlyPayment * tenor * 12)}
                       </span>
                     </p>
                   </div>
                   <a
-                    href="#kontak"
+                    href={kpr.ctaHref}
                     className="inline-block mt-8 luxury-button bg-gold text-background hover:bg-gold-light transition-all duration-300"
                   >
-                    Ajukan KPR
+                    {kpr.ctaText}
                   </a>
                 </div>
               </div>
@@ -195,8 +195,7 @@ const KPRCalculator = () => {
 
             {/* Disclaimer */}
             <p className="mt-10 pt-6 border-t border-border text-xs font-sans text-charcoal-soft text-center">
-              *Perhitungan ini hanya estimasi. Cicilan aktual dapat berbeda
-              tergantung kebijakan bank dan kondisi kredit Anda.
+              {kpr.disclaimer}
             </p>
           </motion.div>
         </motion.div>

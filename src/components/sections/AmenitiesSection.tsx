@@ -1,30 +1,8 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { X } from "lucide-react";
-import poolImage from "@/assets/amenity-pool.jpg";
-import gardenImage from "@/assets/amenity-garden.jpg";
-import securityImage from "@/assets/amenity-security.jpg";
-
-const amenities = [
-  {
-    title: "Keamanan 24 Jam",
-    subtitle: "CCTV & Security",
-    image: securityImage,
-    size: "tall",
-  },
-  {
-    title: "Taman Hijau",
-    subtitle: "Green Living",
-    image: gardenImage,
-    size: "wide",
-  },
-  {
-    title: "Kolam Renang",
-    subtitle: "Swimming Pool",
-    image: poolImage,
-    size: "tall",
-  },
-];
+import { AMENITIES, SITE_CONTENT } from "@/data";
+import type { AmenityType } from "@/types";
 
 const AmenitiesSection = () => {
   const ref = useRef(null);
@@ -33,6 +11,7 @@ const AmenitiesSection = () => {
     image: string;
     title: string;
   } | null>(null);
+  const { amenities } = SITE_CONTENT;
 
   return (
     <>
@@ -48,17 +27,16 @@ const AmenitiesSection = () => {
           >
             <span className="inline-block w-12 h-px bg-gold mb-8" />
             <h2 className="luxury-heading text-3xl md:text-4xl lg:text-5xl mb-6">
-              Fasilitas Premium
+              {amenities.title}
             </h2>
             <p className="luxury-body text-base md:text-lg max-w-2xl mx-auto">
-              Nikmati berbagai fasilitas eksklusif yang dirancang untuk
-              meningkatkan kualitas hidup Anda dan keluarga
+              {amenities.description}
             </p>
           </motion.div>
 
           {/* Masonry Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {amenities.map((amenity, index) => (
+            {AMENITIES.map((amenity: AmenityType, index: number) => (
               <motion.div
                 key={amenity.title}
                 initial={{ opacity: 0, y: 50 }}
@@ -75,7 +53,7 @@ const AmenitiesSection = () => {
               >
                 <img
                   src={amenity.image}
-                  alt={amenity.title}
+                  alt={amenity.alt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Overlay */}
@@ -119,12 +97,7 @@ const AmenitiesSection = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12"
           >
-            {[
-              { icon: "🏠", label: "Cluster Eksklusif" },
-              { icon: "🚗", label: "Akses Mudah" },
-              { icon: "🌳", label: "Area Hijau" },
-              { icon: "⚡", label: "Listrik Underground" },
-            ].map((feature) => (
+            {amenities.additionalFeatures.map((feature) => (
               <div key={feature.label} className="text-center">
                 <span className="text-3xl mb-3 block">{feature.icon}</span>
                 <span className="font-sans text-sm tracking-wider text-charcoal-soft">

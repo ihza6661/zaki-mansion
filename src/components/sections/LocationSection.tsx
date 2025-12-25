@@ -1,16 +1,12 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { NEARBY_PLACES, SITE_CONTENT, PROPERTY_DETAILS } from "@/data";
+import type { NearbyPlaceType } from "@/types";
 
 const LocationSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-
-  const nearbyPlaces = [
-    { name: "Bandara Supadio", distance: "15 menit" },
-    { name: "Mall Transmart", distance: "10 menit" },
-    { name: "RS Antonius", distance: "8 menit" },
-    { name: "Sekolah Internasional", distance: "5 menit" },
-  ];
+  const { location } = SITE_CONTENT;
 
   return (
     <section id="lokasi" className="py-24 lg:py-32 bg-cream">
@@ -24,17 +20,15 @@ const LocationSection = () => {
           >
             <span className="inline-block w-12 h-px bg-gold mb-8" />
             <h2 className="luxury-heading text-3xl md:text-4xl lg:text-5xl mb-6">
-              Lokasi Strategis
+              {location.title}
             </h2>
             <p className="luxury-body text-base md:text-lg mb-8 max-w-lg">
-              Terletak di kawasan premium Kota Pontianak dengan akses mudah ke
-              berbagai fasilitas umum, pusat perbelanjaan, sekolah, dan rumah
-              sakit terkemuka.
+              {location.description}
             </p>
 
             {/* Nearby Places */}
             <div className="space-y-4 mb-10">
-              {nearbyPlaces.map((place, index) => (
+              {NEARBY_PLACES.map((place: NearbyPlaceType, index: number) => (
                 <motion.div
                   key={place.name}
                   initial={{ opacity: 0, x: -20 }}
@@ -51,13 +45,13 @@ const LocationSection = () => {
             </div>
 
             <a
-              href="https://maps.google.com"
+              href={location.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 text-charcoal font-sans text-sm tracking-widest uppercase group"
             >
               <span className="border-b border-charcoal pb-1 group-hover:border-gold group-hover:text-gold transition-colors duration-300">
-                Lihat di Maps
+                {location.ctaText}
               </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +79,7 @@ const LocationSection = () => {
           >
             <div className="aspect-square bg-muted rounded-sm overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.75772082095!2d109.26539!3d-0.02123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d5987fd61ee53%3A0x88b38f3d04c3adac!2sPontianak%2C%20Pontianak%20City%2C%20West%20Kalimantan!5e0!3m2!1sen!2sid!4v1703000000000!5m2!1sen!2sid"
+                src={PROPERTY_DETAILS.mapEmbedUrl}
                 width="100%"
                 height="100%"
                 style={{ border: 0, filter: "grayscale(100%) contrast(1.1)" }}

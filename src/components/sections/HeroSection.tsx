@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import heroImage from "@/assets/hero-mansion.jpg";
+import { SITE_CONTENT } from "@/data";
 
 const HeroSection = () => {
+  const { hero } = SITE_CONTENT;
+
   return (
     <section
       id="beranda"
@@ -11,8 +13,8 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <div className="absolute inset-0 animate-ken-burns">
           <img
-            src={heroImage}
-            alt="Zaki Mansion - Hunian Mewah di Pontianak"
+            src={hero.image}
+            alt={hero.imageAlt}
             className="h-full w-full object-cover"
           />
         </div>
@@ -31,7 +33,7 @@ const HeroSection = () => {
           >
             <span className="inline-block w-16 h-px bg-gold mb-8" />
             <p className="text-background/80 font-sans text-sm tracking-[0.3em] uppercase mb-4">
-              Pontianak, Kalimantan Barat
+              {hero.location}
             </p>
           </motion.div>
 
@@ -41,9 +43,9 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="font-serif text-4xl md:text-5xl lg:text-7xl font-semibold text-background leading-tight mb-8"
           >
-            Luxury Living
+            {hero.headline}
             <br />
-            <span className="text-gold-light">Redefined</span>
+            <span className="text-gold-light">{hero.subheadline}</span>
           </motion.h1>
 
           <motion.p
@@ -52,8 +54,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="font-sans text-background/80 text-lg md:text-xl font-light tracking-wide max-w-2xl mx-auto mb-12"
           >
-            Temukan hunian premium dengan desain modern dan kenyamanan maksimal
-            di jantung Kota Pontianak
+            {hero.description}
           </motion.p>
 
           <motion.div
@@ -63,16 +64,16 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <a
-              href="#unit"
+              href={hero.ctaPrimaryHref}
               className="luxury-button bg-gold text-background hover:bg-gold-light transition-all duration-300"
             >
-              Lihat Unit
+              {hero.ctaPrimary}
             </a>
             <a
-              href="#kontak"
+              href={hero.ctaSecondaryHref}
               className="luxury-button border border-background/50 text-background hover:bg-background/10 transition-all duration-300"
             >
-              Hubungi Kami
+              {hero.ctaSecondary}
             </a>
           </motion.div>
         </div>
@@ -87,7 +88,7 @@ const HeroSection = () => {
       >
         <div className="flex flex-col items-center gap-2">
           <span className="text-background/60 text-xs font-sans tracking-widest uppercase">
-            Scroll
+            {hero.scrollText}
           </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}

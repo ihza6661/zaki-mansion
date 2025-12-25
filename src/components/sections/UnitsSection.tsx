@@ -1,37 +1,12 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import unit36 from "@/assets/unit-type36.jpg";
-import unit54 from "@/assets/unit-type54.jpg";
-import unit72 from "@/assets/unit-type72.jpg";
-
-const units = [
-  {
-    type: "Type 36",
-    area: "36/72 m²",
-    bedrooms: "2 Kamar Tidur",
-    price: "Mulai Rp 650 Juta",
-    image: unit36,
-  },
-  {
-    type: "Type 54",
-    area: "54/105 m²",
-    bedrooms: "3 Kamar Tidur",
-    price: "Mulai Rp 950 Juta",
-    image: unit54,
-    featured: true,
-  },
-  {
-    type: "Type 72",
-    area: "72/150 m²",
-    bedrooms: "4 Kamar Tidur",
-    price: "Mulai Rp 1.5 Miliar",
-    image: unit72,
-  },
-];
+import { UNITS, SITE_CONTENT } from "@/data";
+import type { UnitType } from "@/types";
 
 const UnitsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const { units } = SITE_CONTENT;
 
   return (
     <section id="unit" className="py-24 lg:py-32 bg-background">
@@ -46,17 +21,16 @@ const UnitsSection = () => {
         >
           <span className="inline-block w-12 h-px bg-gold mb-8" />
           <h2 className="luxury-heading text-3xl md:text-4xl lg:text-5xl mb-6">
-            Pilihan Unit
+            {units.title}
           </h2>
           <p className="luxury-body text-base md:text-lg max-w-2xl mx-auto">
-            Berbagai pilihan tipe rumah yang dapat disesuaikan dengan kebutuhan
-            dan gaya hidup keluarga Anda
+            {units.description}
           </p>
         </motion.div>
 
         {/* Units Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-          {units.map((unit, index) => (
+          {UNITS.map((unit: UnitType, index: number) => (
             <motion.div
               key={unit.type}
               initial={{ opacity: 0, y: 50 }}
@@ -70,7 +44,7 @@ const UnitsSection = () => {
               <div className="relative overflow-hidden aspect-[4/3] mb-6">
                 <img
                   src={unit.image}
-                  alt={`Zaki Mansion ${unit.type}`}
+                  alt={unit.alt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 {unit.featured && (
@@ -98,11 +72,11 @@ const UnitsSection = () => {
                   </span>
                 </div>
                 <a
-                  href="#kontak"
+                  href={units.ctaHref}
                   className="inline-flex items-center gap-2 text-charcoal font-sans text-sm tracking-wider uppercase mt-4 group/link"
                 >
                   <span className="border-b border-transparent group-hover/link:border-charcoal transition-colors duration-300">
-                    Lihat Detail
+                    {units.ctaText}
                   </span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

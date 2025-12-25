@@ -13,6 +13,7 @@ A modern React landing page for the "Zaki Mansion Elegance" real estate project,
 - Framer Motion for animations
 - React Router DOM for routing
 - React Hook Form + Zod for form validation
+- react-helmet-async for SEO and meta tags
 
 ## Build, Lint, and Test Commands
 
@@ -36,16 +37,48 @@ This project currently has no test framework configured. If tests are needed:
 ```
 src/
 ├── components/       # React components
+│   ├── layout/      # Layout components (Navbar, Footer, MobileStickyBar)
+│   ├── sections/    # Page section components (HeroSection, UnitsSection, etc.)
 │   ├── ui/          # shadcn/ui components (auto-generated)
-│   └── *.tsx        # Feature components
+│   └── SEOHead.tsx  # SEO meta tags component
+├── data/            # Centralized data layer
+│   └── index.ts     # Single source of truth for all content
+├── types/           # TypeScript type definitions
+│   └── index.ts     # Interfaces for all data structures
 ├── pages/           # Page-level components
 ├── hooks/           # Custom React hooks
 ├── lib/             # Utility functions (utils.ts)
 ├── assets/          # Images and static assets
-└── App.tsx          # App entry with routing
+└── App.tsx          # App entry with routing and HelmetProvider
 ```
 
 ## Code Style Guidelines
+
+### Data Abstraction Layer
+**IMPORTANT:** All content, configuration, and hardcoded values are centralized in `src/data/index.ts`. This is the single source of truth for:
+- Contact information (phone, email, WhatsApp)
+- Property details (name, tagline, location)
+- Navigation links
+- Social media links
+- Section content (hero, experience, amenities, units, location, contact, KPR, footer)
+- Units array with detailed specifications
+- Amenities array with descriptions
+- Nearby places for location proximity
+
+**Never hardcode strings or values in components.** Always import from `@/data` and use the appropriate constant or data structure.
+
+### TypeScript Type Definitions
+All data structures have corresponding TypeScript interfaces defined in `src/types/index.ts`:
+- `UnitType` - Unit specifications and details
+- `AmenityType` - Amenity information
+- `NearbyPlaceType` - Location proximity data
+- `ContactInfo` - Contact configuration
+- `SocialLink` - Social media links
+- `NavLink` - Navigation menu items
+- `PropertyDetails` - Property information
+- `TrustBadge` - Trust indicators
+
+Always import and use these types when working with data structures.
 
 ### Import Order
 1. React imports
@@ -60,8 +93,10 @@ Example:
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/layout/Navbar";
 import { cn } from "@/lib/utils";
+import { PROPERTY_DETAILS } from "@/data";
+import { UnitType } from "@/types";
 ```
 
 ### TypeScript Configuration
@@ -204,6 +239,35 @@ const formatCurrency = (value: number) => {
 - Use React.lazy() for heavy components if needed
 - Optimize images before adding to assets
 - Keep bundle size in check (avoid unnecessary dependencies)
+
+### Lazy Loading Strategy
+- **LocationSection** is lazy loaded using `React.lazy()` and `Suspense`
+- LocationSection contains an iframe (Google Maps), which can delay initial page load
+- Other sections (Hero, Experience, Units, Amenities) are eagerly loaded for better LCP (Largest Contentful Paint)
+- Custom `SectionSkeleton` component provides loading state for lazy sections
+
+### Image Optimization
+**IMPORTANT:** Before adding images to `src/assets/`, optimize them for web:
+- Use tools like TinyPNG, ImageOptim, or Squoosh to reduce file size
+- Target file sizes: Hero images < 200KB, section images < 100KB, thumbnails < 50KB
+- Use modern formats (WebP) when possible, with JPG fallbacks
+- Ensure images are properly sized (don't use 4K images for 800px displays)
+- Add descriptive, SEO-friendly alt text for all images
+
+## SEO Best Practices
+
+### Meta Tags and Open Graph
+- `SEOHead` component in `src/components/SEOHead.tsx` manages all meta tags
+- Imports property details from `@/data` for consistency
+- Includes Open Graph tags for social sharing (WhatsApp, Facebook, Twitter)
+- Add `public/og-image.jpg` (1200x630px) for social media preview images
+- Structured data (Schema.org) for real estate listings improves search visibility
+
+### react-helmet-async Configuration
+- `HelmetProvider` wraps the entire app in `App.tsx`
+- All pages should include `<SEOHead />` component at the top
+- Dynamic meta tags can be passed as props to `SEOHead` for different pages
+- Supports SSR (Server-Side Rendering) if needed in the future
 
 ## Accessibility
 

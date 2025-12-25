@@ -1,10 +1,11 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import interiorImage from "@/assets/interior-living.jpg";
+import { SITE_CONTENT } from "@/data";
 
 const ExperienceSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { experience } = SITE_CONTENT;
 
   return (
     <section className="py-24 lg:py-32 bg-background">
@@ -22,8 +23,8 @@ const ExperienceSection = () => {
           >
             <div className="aspect-[3/4] overflow-hidden">
               <img
-                src={interiorImage}
-                alt="Interior mewah Zaki Mansion"
+                src={experience.image}
+                alt={experience.imageAlt}
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
@@ -40,26 +41,24 @@ const ExperienceSection = () => {
           >
             <span className="inline-block w-12 h-px bg-gold mb-8" />
             <h2 className="luxury-heading text-3xl md:text-4xl lg:text-5xl mb-6">
-              Desain Modern &<br />
-              Kenyamanan Premium
+              {experience.title}
+              <br />
+              {experience.titleContinued}
             </h2>
-            <p className="luxury-body text-base md:text-lg mb-8 max-w-lg">
-              Zaki Mansion menghadirkan konsep hunian modern yang memadukan
-              keeleganan arsitektur kontemporer dengan kenyamanan hidup
-              maksimal. Setiap detail dirancang dengan cermat untuk memberikan
-              pengalaman tinggal yang tak terlupakan.
-            </p>
-            <p className="luxury-body text-base md:text-lg mb-10 max-w-lg">
-              Nikmati ruang hidup yang luas dengan pencahayaan alami yang
-              optimal, material premium berkualitas tinggi, dan tata letak yang
-              fungsional untuk memenuhi kebutuhan keluarga modern.
-            </p>
+            {experience.paragraphs.map((paragraph, index) => (
+              <p
+                key={index}
+                className="luxury-body text-base md:text-lg mb-8 max-w-lg"
+              >
+                {paragraph}
+              </p>
+            ))}
             <a
-              href="#unit"
+              href={experience.ctaHref}
               className="inline-flex items-center gap-3 text-charcoal font-sans text-sm tracking-widest uppercase group"
             >
               <span className="border-b border-charcoal pb-1 group-hover:border-gold group-hover:text-gold transition-colors duration-300">
-                Jelajahi Unit
+                {experience.ctaText}
               </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
