@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { PROPERTY_DETAILS, CONTACT_CONFIG } from "@/data";
+import { SITE_CONFIG, PROPERTY_DETAILS, CONTACT_CONFIG } from "@/data";
 
 /**
  * SEO Head Component
@@ -8,8 +8,8 @@ import { PROPERTY_DETAILS, CONTACT_CONFIG } from "@/data";
 const SEOHead = () => {
   const pageTitle = `${PROPERTY_DETAILS.name} - ${PROPERTY_DETAILS.tagline}`;
   const pageDescription = `Discover ${PROPERTY_DETAILS.name} - premium residential property in ${PROPERTY_DETAILS.location}. Experience luxury living with world-class amenities and modern design.`;
-  const siteUrl = typeof window !== "undefined" ? window.location.origin : "";
-  const imageUrl = `${siteUrl}/og-image.jpg`; // You'll need to add this image to public/
+  const siteUrl = SITE_CONFIG.url;
+  const imageUrl = `${siteUrl}${SITE_CONFIG.ogImagePath}`;
 
   // Structured Data for Real Estate (Schema.org)
   const structuredData = {

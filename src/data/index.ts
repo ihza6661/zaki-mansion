@@ -26,6 +26,19 @@ import interiorImage from "@/assets/interior-living.jpg";
 import heroImage from "@/assets/hero-mansion.jpg";
 
 // ===========================
+// SITE CONFIGURATION
+// ===========================
+
+/**
+ * Production site configuration
+ * Update this when deploying to production or changing domains
+ */
+export const SITE_CONFIG = {
+  url: "https://zaki-mansion.vercel.app",
+  ogImagePath: "/og-image.jpg",
+};
+
+// ===========================
 // CONTACT CONFIGURATION
 // ===========================
 export const CONTACT_CONFIG: ContactInfo = {
