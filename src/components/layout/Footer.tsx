@@ -100,7 +100,7 @@ const Footer = () => {
           <p className="font-sans text-xs text-background/40 text-center">
             © {new Date().getFullYear()} {footer.copyrightText}
 
-            <span className="block mt-1">Build By @ihza_baker</span>
+            <span className="block mt-1">Made By @ihza_baker</span>
           </p>
         </div>
       </div>
