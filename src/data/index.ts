@@ -77,13 +77,18 @@ export const NAV_LINKS: NavLink[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     platform: "instagram",
-    url: "https://www.instagram.com/zakimansion",
-    ariaLabel: "Instagram Zaki Mansion"
+    url: "https://www.instagram.com/ihza_baker",
+    ariaLabel: "Instagram ihza baker"
   },
   {
     platform: "facebook",
-    url: "#",
-    ariaLabel: "Facebook Zaki Mansion"
+    url: "https://www.facebook.com/ihzabaker",
+    ariaLabel: "Facebook ihza baker"
+  },
+  {
+    platform: "whatsapp",
+    url: CONTACT_CONFIG.whatsappLink,
+    ariaLabel: "WhatsApp ihza baker"
   }
 ];
 
