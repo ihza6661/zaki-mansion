@@ -79,32 +79,38 @@ Koleksi dokumen sales dan proposal untuk presentasi kepada klien dan stakeholder
 
 ---
 
-### 3. **Proposal Singkat** ([proposal-singkat.md](./proposal-singkat.md))
-**Target Audience:** Technical Manager, Project Manager  
-**Format:** Extended dengan detail mendalam (1200+ baris)  
+### 3. **Proposal Singkat** ([proposal-singkat.md](./proposal-singkat.md)) 🆕 **EXECUTIVE SUMMARY**
+**Target Audience:** Owner/CEO, Decision Maker (yang sibuk)  
+**Format:** Balanced proposal mini (300+ baris)  
 **Bahasa:** Bahasa Indonesia
 
 **Isi:**
-- ✅ Latar belakang & analisis kebutuhan (deep dive)
-- ✅ 3 Paket detail dengan deliverables lengkap
-- ✅ Add-ons & bundle offers
-- ✅ Timeline pengerjaan per minggu (3 variants)
-- ✅ Terms & conditions embedded (detailed)
-- ✅ Technical expertise showcase
-- ✅ Support & maintenance policy
+- ✅ Executive Summary (hook "80% jadi")
+- ✅ Problem Statement (singkat - tabel comparison)
+- ✅ Solution Highlight (demo showcase dengan contoh properti)
+- ✅ 3 Paket Pricing (simplified table)
+- ✅ Timeline (text summary, bukan chart)
+- ✅ ROI Quick Calculation (break-even 6-8 bulan)
+- ✅ CTA dengan early bird discount
 
 **Kapan Menggunakan:**
-- Follow-up meeting setelah first pitch
-- Technical discussion dengan IT team
-- Detailed scope clarification
-- Contract negotiation (technical deep dive)
+- Email follow-up setelah first contact ⭐
+- Executive briefing (10-15 menit read)
+- Budget approval pitch (fokus ROI)
+- Handout untuk quick reference
 
 **Kekuatan:**
-- ✅ Detail feature breakdown per paket
-- ✅ 3 Timeline variants (Starter, Business, Enterprise)
-- ✅ Technical specification lengkap
-- ✅ SLA & support response time jelas
-- ✅ Educational (industry analysis)
+- ✅ Singkat & padat (respect decision maker's time)
+- ✅ No technical jargon (business-focused)
+- ✅ Demo showcase dengan data properti real (unit, harga, fasilitas)
+- ✅ Clear ROI calculation
+- ✅ Action-oriented (strong CTA)
+
+**New in v3.0:**
+- ✅ Fokus showcase properti (unit gallery, amenities, location)
+- ✅ Minimal technical details (no React/Laravel mention)
+- ✅ Simplified pricing table (1 table untuk 3 paket)
+- ✅ ROI section dengan contoh perhitungan real
 
 ---
 
@@ -137,20 +143,20 @@ Koleksi dokumen sales dan proposal untuk presentasi kepada klien dan stakeholder
 ## 📊 Document Hierarchy & Flow
 
 ```
-pitch-deck.md (Quick intro)
+pitch-deck.md (Quick intro, 15 menit)
     ↓
-proposal-lengkap.md (Visual pitch + T&C summary)
+proposal-singkat.md (Executive summary, 10-15 menit) ← 🆕 RECOMMENDED FIRST
+    ↓
+proposal-lengkap.md (Formal presentation, 30-45 menit)
     ↓
 terms-conditions.md (Full legal T&C)
-    ↓
-proposal-singkat.md (Technical deep dive)
 ```
 
 **Best Strategy:**
 1. **First Contact** → pitch-deck.md (hook them)
-2. **First Meeting** → proposal-lengkap.md (present with visuals)
-3. **Contract Phase** → terms-conditions.md (legal review)
-4. **Technical Discussion** → proposal-singkat.md (IT team deep dive)
+2. **Email Follow-up** → proposal-singkat.md (executive briefing) ⭐ NEW!
+3. **Formal Meeting** → proposal-lengkap.md (present with visuals)
+4. **Contract Phase** → terms-conditions.md (legal review)
 
 ---
 
@@ -187,26 +193,38 @@ proposal-singkat.md (Technical deep dive)
 
 ---
 
-### Scenario 4: Technical Discussion dengan IT Team
-**Dokumen:** [proposal-singkat.md](./proposal-singkat.md) + [spek-teknis.md](../spek-teknis.md)  
+### Scenario 4: Email Follow-up After First Contact 🆕
+**Dokumen:** [proposal-singkat.md](./proposal-singkat.md) ⭐ NEW!  
+**Action:** Send via email/WhatsApp setelah demo live ditunjukkan  
+**Highlight:** 
+- Executive summary singkat (80% jadi)
+- Demo showcase (unit gallery, KPR calc, amenities)
+- ROI calculation (break-even 6-8 bulan)
+- Simplified pricing table
+**Follow-up:** Schedule meeting untuk diskusi lebih detail → gunakan [proposal-lengkap.md](./proposal-lengkap.md)
+
+---
+
+### Scenario 5: Technical Discussion dengan IT Team
+**Dokumen:** [proposal-lengkap.md](./proposal-lengkap.md) + [spek-teknis.md](../spek-teknis.md)  
 **Action:** Deep dive ke technical stack, timeline, SLA  
 **Highlight:** 
+- Mermaid diagrams (arsitektur sistem)
 - Backend architecture (Laravel + MySQL)
 - Admin panel features (CMS capabilities)
-- API documentation
-- 3 Timeline variants (per package)
+- Gantt chart timeline
 **Follow-up:** Demo admin dashboard (jika ada staging)
 
 ---
 
-### Scenario 5: Budget Approval Pitch (CFO/Finance)
-**Dokumen:** [proposal-lengkap.md](./proposal-lengkap.md)  
-**Action:** Focus pada ROI slide, early bird discount, pricing comparison  
+### Scenario 6: Budget Approval Pitch (CFO/Finance)
+**Dokumen:** [proposal-singkat.md](./proposal-singkat.md) ⭐ RECOMMENDED  
+**Action:** Focus pada ROI section & pricing comparison  
 **Highlight:** 
-- "Break-even 6-8 bulan"
+- "Break-even 6-8 bulan" (ROI calculation)
 - "Website sudah 80% jadi" (reduce risk)
 - Investment breakdown dengan early bird discount
-- Annual recurring cost (transparency)
+- Simplified pricing table (easy to compare)
 **Follow-up:** Offer meeting untuk Q&A, send T&C for review
 
 ---
@@ -223,15 +241,57 @@ proposal-singkat.md (Technical deep dive)
 
 ---
 
-## 🔧 Modular Document Structure (v2.0 Update)
+## 🔧 Modular Document Structure
 
-### What's New?
+### What's New in v3.0? 🆕
+
+**Major Update:** Recreated `proposal-singkat.md` as executive briefing (business-focused, bukan technical deep dive)
+
+**v3.0 Structure:**
+```
+proposal-singkat.md (300+ lines) 🆕 BUSINESS-FOCUSED
+  ├── Executive Summary (hook "80% jadi")
+  ├── Problem Statement (tabel comparison, singkat)
+  ├── Solution Highlight (demo showcase dengan data properti)
+  ├── 3 Paket Pricing (simplified table)
+  ├── Timeline (text summary, bukan Gantt)
+  ├── ROI Quick Calculation (break-even 6-8 bulan)
+  └── CTA (early bird discount)
+
+pitch-deck.md (1000+ lines)
+  └── Slide-style quick pitch
+
+proposal-lengkap.md (800+ lines)
+  ├── Comprehensive proposal dengan Mermaid diagrams
+  └── → Link to terms-conditions.md
+
+terms-conditions.md (1000+ lines)
+  └── Full legal T&C (10 sections)
+```
+
+**Key Changes in v3.0:**
+- ✅ **proposal-singkat.md** now focused on business value, not technical specs
+- ✅ Removed technical jargon (no React/Laravel/TypeScript mention)
+- ✅ Added demo showcase dengan contoh data properti (unit, harga, fasilitas)
+- ✅ Simplified pricing table (1 table untuk 3 paket)
+- ✅ ROI section dengan contoh perhitungan real
+- ✅ Perfect untuk email follow-up & budget approval pitch
+
+**Use Case:**
+- Email follow-up setelah first contact ⭐
+- Budget approval (CFO/Finance)
+- Executive briefing (Owner/CEO yang sibuk)
+- Quick reference handout
+
+---
+
+### What's New in v2.0?
 
 **Improvement:** Extracted Terms & Conditions menjadi modular document terpisah
 
 **Before (v1.0):**
 ```
-proposal-singkat.md (1274 lines)
+proposal-lengkap.md (1200+ lines)
   ├── Executive Summary
   ├── Problem Analysis
   ├── Solution
@@ -279,17 +339,22 @@ terms-conditions.md (1000+ lines) 🆕
 
 ## 📦 Document Usage Matrix
 
-| Audience | Cold Email | First Meeting | Legal Review | Tech Discussion | Contract Signing |
-|----------|------------|---------------|--------------|-----------------|------------------|
-| **Owner/CEO** | pitch-deck.md | **proposal-lengkap.md** ⭐ | terms-conditions.md | - | terms-conditions.md |
-| **CFO/Finance** | pitch-deck.md | **proposal-lengkap.md** ⭐ | terms-conditions.md | - | terms-conditions.md |
-| **Legal/Procurement** | - | - | **terms-conditions.md** ⭐ | - | **terms-conditions.md** ⭐ |
-| **CTO/IT Manager** | pitch-deck.md | proposal-lengkap.md | - | **proposal-singkat.md** ⭐ | - |
-| **Project Manager** | pitch-deck.md | proposal-lengkap.md | - | **proposal-singkat.md** ⭐ | - |
+| Audience | Cold Email | Email Follow-up | First Meeting | Budget Approval | Legal Review | Contract Signing |
+|----------|------------|-----------------|---------------|-----------------|--------------|------------------|
+| **Owner/CEO** | pitch-deck.md | **proposal-singkat.md** ⭐ | proposal-lengkap.md | **proposal-singkat.md** ⭐ | terms-conditions.md | terms-conditions.md |
+| **CFO/Finance** | pitch-deck.md | **proposal-singkat.md** ⭐ | proposal-lengkap.md | **proposal-singkat.md** ⭐ | terms-conditions.md | terms-conditions.md |
+| **Legal/Procurement** | - | - | - | - | **terms-conditions.md** ⭐ | **terms-conditions.md** ⭐ |
+| **CTO/IT Manager** | pitch-deck.md | proposal-singkat.md | **proposal-lengkap.md** ⭐ | - | - | - |
+| **Project Manager** | pitch-deck.md | proposal-singkat.md | **proposal-lengkap.md** ⭐ | - | - | - |
 
 **Legend:**
 - ⭐ = Primary document for this scenario
 - Bold = Recommended document
+
+**Updated in v3.0:**
+- Added "Email Follow-up" column (use proposal-singkat.md)
+- Added "Budget Approval" column (use proposal-singkat.md for CFO/Finance)
+- Changed proposal-singkat.md positioning from "Technical deep dive" to "Executive briefing"
 
 ---
 
@@ -447,8 +512,11 @@ Response time: < 24 jam
 | Version | Date | Changes | Author |
 |---------|------|---------|--------|
 | 1.0 | 25 Des 2025 | Initial creation of all sales materials | Ihza Mahendra |
-| - | - | Added Mermaid diagrams to proposal-lengkap.md | Ihza Mahendra |
-| - | - | Created README index for navigation | Ihza Mahendra |
+| 2.0 | 25 Des 2025 | Added Mermaid diagrams to proposal-lengkap.md | Ihza Mahendra |
+| 2.0 | 25 Des 2025 | Extracted terms-conditions.md as modular document | Ihza Mahendra |
+| 3.0 | 26 Des 2025 | **Recreated proposal-singkat.md as executive briefing** | Ihza Mahendra |
+| 3.0 | 26 Des 2025 | Changed focus: technical deep dive → business-focused mini proposal | Ihza Mahendra |
+| 3.0 | 26 Des 2025 | Updated README: hierarchy, scenarios, usage matrix | Ihza Mahendra |
 
 ---
 
